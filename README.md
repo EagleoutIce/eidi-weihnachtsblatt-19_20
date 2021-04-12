@@ -40,3 +40,5 @@ Die Kompilierung sollte mit [sltx](https://github.com/EagleoutIce/sltx) probleml
 Alle nicht auf CTAN-verzeichneten Pakete finden sich in der [sopra-collection](https://github.com/EagleoutIce/sopra-collection).
 
 *Ach ja: Der LaTeX-Code ist in Eile entstanden und sollte deswegen nicht als Maß für einen guten Programmierstil herangezogen werden.*
+
+[<img src="https://github.com/EagleoutIce/eidi-weihnachttsblatt-19_20/blob/gh-pages/preview-01.png?raw=true" width="460"/>](https://media.githubusercontent.com/media/EagleoutIce/eidi-weihnachttsblatt-19_20/gh-pages/weihnachtsblatt-lsg.pdf)
