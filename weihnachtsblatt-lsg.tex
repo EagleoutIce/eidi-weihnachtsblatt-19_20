@@ -52,7 +52,7 @@
 Dieses Übungsblatt wurde von mir (Florian Sihler) als freiwilliges Übungsangebot für die Tutorienteilnehmer der Veranstaltung \say{Einführung in die Informatik} im Wintersemester 2019/2020 erstellt. Hierbei handelt es sich um die \say{Musterlösungen}, die eine Vorstellung für die Lösung der einzelnen Aufgaben liefern. Ich verwende \say{\T{du}}, sollten Sie sich in dieser Hinsicht angegriffen fühlen, so bitte ich dies aufrichtigst zu entschuldigen.\par{}
 
 Alle Codes die hier gezeigt/erklärt oder angerissen werden, sind der PDF-Datei selbst noch einmal
-angehängt, wobei die diversen Kommilitonen, welche mir bei der Programmierung einige Arbeit abgenommen haben dort jeweils vermerkt sind. Um die Dateien zu öffnen wird ein PDF-Viewer benötigt, welcher Anhänge unterstützt (was für eigentlich alle gängigen zutrifft). Sollte ein Anklicken der jeweiligen Markierung wie diese für \aJava{Test.java} nicht möglich sein, so empfiehlt es sich einen Viewer wie den Adobe Acrobat Reader, Okular, Evince oder Xodo zu verwenden\footnote{Hier wurde mir die Funktionalität bereits bestätigt \Laughey}.
+angehängt, wobei die diversen Kommilitonen, welche mir bei der Programmierung einige Arbeit abgenommen haben dort jeweils vermerkt sind. Um die Dateien zu öffnen wird ein PDF-Viewer benötigt, welcher Anhänge unterstützt (was für eigentlich alle gängigen zutrifft). Sollte ein Anklicken der jeweiligen Markierung wie diese für \aJava{Test.java} nicht möglich sein, so empfiehlt es sich einen Viewer wie den Adobe Acrobat Reader, Okular, Evince oder Xodo zu verwenden.\footnote{Hier wurde mir die Funktionalität bereits bestätigt \Laughey}
 
 \begin{center}
     Fragen, Anmerkungen, Lob, Kritik und Fehlerkorrekturen bitte an:\\
@@ -78,7 +78,7 @@ angehängt, wobei die diversen Kommilitonen, welche mir bei der Programmierung e
 \section{Einfache Aufgaben}
 
 \textit{Dieser Abschnitt enthält eine Ansammlung kleiner Aufgabenstellungen. Sie müssen natürlich nicht in zehn Minuten herunter geschrieben werden. Es gilt auch (und vielleicht vor allem) sich die Zeit zu nehmen das
-Kommentieren von Code zu üben oder sich mit Build-Systemen wie \T{make}\footnote{\url{https://www.gnu.org/software/make/}}, \T{maven}\footnote{\url{https://maven.apache.org/}} oder \T{gradle}\footnote{\url{https://gradle.org/}} vertraut zu machen. Auch kann gern eine andere Programmiersprache versucht, oder das Programm gleich in mehreren implementiert werden. Die Lösungen werden allerdings in Java sein und wer eine esoterische Programmiersprache verwendet ist selbst schuld \Winkey.}\par{}
+Kommentieren von Code zu üben oder sich mit Build-Systemen wie \T{make},\footnote{\url{https://www.gnu.org/software/make/}} \T{maven}\footnote{\url{https://maven.apache.org/}} oder \T{gradle}\footnote{\url{https://gradle.org/}} vertraut zu machen. Auch kann gern eine andere Programmiersprache versucht, oder das Programm gleich in mehreren implementiert werden. Die Lösungen werden allerdings in Java sein und wer eine esoterische Programmiersprache verwendet ist selbst schuld \Winkey.}\par{}
 
 Es sollten keine Komponenten aus der Java-Bibliothek verwendet werden, die die Aufgabe (drastisch) vereinfachen (so zum Beispiel: \bjava[morekeywords={[2]{GregorianCalendar}},morekeywords={[3]{isLeapYear}}]{Java.util.GregorianCalendar.isLeapYear(int)}).
 
@@ -348,7 +348,7 @@ public String toString() {
 
 \subsection{Turing-Maschine}
 \label{sec:turing}
-\textit{Vorab: Eine Programmiersprache erfüllt die Eigenschaft: \say{Turing-Vollständig}, wenn sie sich von einer Turing-Maschine emulieren lässt. Java und die meisten großen Programmiersprachen sind Turing-Vollständig. Das bedeutet wir können sie auch durch eine ganz kleine einfache Maschine ausdrücken: Die von Alan Turing 1936 eingeführte \imptext{Turingmaschine}\footnote{\url{https://de.wikipedia.org/wiki/Turingmaschine}}. Wir wollen uns hier nicht ausführlich mit dieser genialen Entwicklung aufhalten. Es sei nur als Hintergrundinformation gegeben, da wir hier eine solche in Java implementieren werden. Die Turingmaschine besitzt zwar in der Theorie unbegrenzt Speicherplatz, wir werden diesen hier allerdings - aus offensichtlichen Gründen - künstlich begrenzen.}\par{}
+\textit{Vorab: Eine Programmiersprache erfüllt die Eigenschaft: \say{Turing-Vollständig}, wenn sie sich von einer Turing-Maschine emulieren lässt. Java und die meisten großen Programmiersprachen sind Turing-Vollständig. Das bedeutet wir können sie auch durch eine ganz kleine einfache Maschine ausdrücken: Die von Alan Turing 1936 eingeführte \imptext{Turingmaschine}.\footnote{\url{https://de.wikipedia.org/wiki/Turingmaschine}} Wir wollen uns hier nicht ausführlich mit dieser genialen Entwicklung aufhalten. Es sei nur als Hintergrundinformation gegeben, da wir hier eine solche in Java implementieren werden. Die Turingmaschine besitzt zwar in der Theorie unbegrenzt Speicherplatz, wir werden diesen hier allerdings - aus offensichtlichen Gründen - künstlich begrenzen.}\par{}
 
 Im Folgenden besitzen wir ein Arbeitsband (\emph{working-tape}, hier durch ein Array repräsentiert) mit einer Länge von $42$ Feldern (oder jeder beliebigen anderen Anzahl, länger als $10$ sollte es aber schon sein \Tongey) auf dem sich ein Lese-/Schreib-Kopf (der sogenannte \emph{head}) bewegen kann. Dieser startet auf dem ersten Feld und kann nur nach links oder rechts bewegt werden (und zwar jeweils immer ein Feld weit), wobei wir zur
 \say{Emulation} eines unbegrenzten Speichers einfach festlegen, dass das Arbeitsband einen \say{Kreis} bildet (viel Spaß das in den Gedanken zu modellieren \Laughey), wenn wir also auf dem ersten Feld nach links gehen, landen wir auf dem letzten Feld, und anders herum, wenn wir auf dem letzten Feld nach rechts möchten, landen wir wieder auf dem ersten Feld (\textit{Hinweis: In Array-Notation entspricht das \say{erste Feld} \bjava{tape[0]} und das \say{letzte Feld} \bjava{tape[41]}}).
@@ -1058,7 +1058,7 @@ Die folgende Aufgabe ist in ihrer Natur komplexer und benötigt zumindest grundl
 werden, es geht um ein zwei Spieler-Schach welches es ermöglicht zwei Personen an einer
 Konsole gegeneinander Schach zu spielen. Zur optischen Aufbereitung können die im Folgenden nahegelegten ANSI-Escape-Codes Verwendung finden:}\par
 \paragraph{Mit ANSI-Escape-Codes:}
-Für den folgenden Teil kann es nützlich/hilfreich sein ANSI-Escape Sequenzen zu kennen. Diese müssen auf Windows-Distributionen unter Umständen noch aktiviert werden wobei dies mit Windows 10 nur noch ein Klick in eine Box getan sein sollte\footnote{\url{https://stackoverflow.com/questions/16755142/how-to-make-win32-console-recognize-ansi-vt100-escape-sequences\#16799175}}.\par{}
+Für den folgenden Teil kann es nützlich/hilfreich sein ANSI-Escape Sequenzen zu kennen. Diese müssen auf Windows-Distributionen unter Umständen noch aktiviert werden wobei dies mit Windows 10 nur noch ein Klick in eine Box getan sein sollte.\footnote{\url{https://stackoverflow.com/questions/16755142/how-to-make-win32-console-recognize-ansi-vt100-escape-sequences\#16799175}}\par{}
 Grundlegend handelt es sich bei einer ANSI-Escape Sequenz um eine durch \bjava{\\033[}
 angeführte Kontrollsequenz an der die anschließende Kodierung eine besondere Bedeutung im
 Terminal erhält. Eine volle Liste findet sich hier: \url{https://en.wikipedia.org/wiki/ANSI_escape_code}, vermutlich werden allerdings die Folgenden ausreichen:
@@ -1082,7 +1082,7 @@ damit man die jeweiligen Zustände gut voneinander trennen kann.
 
 \paragraph{Anforderungen:}
 Zu Beginn und nach der Eingabe eines gültigen Zuges soll jeweils das Feld angezeigt werden.
-Hierbei sollen die Zeilen und Spalten sowohl oben und unten als auch links und rechts angezeigt werden. Die einzelnen Figuren können mittels Unicode dargestellt werden, durch ihre offizielle Schachnotation\footnote{\url{https://de.wikipedia.org/wiki/Schachnotation}}.\par{}
+Hierbei sollen die Zeilen und Spalten sowohl oben und unten als auch links und rechts angezeigt werden. Die einzelnen Figuren können mittels Unicode dargestellt werden, durch ihre offizielle Schachnotation.\footnote{\url{https://de.wikipedia.org/wiki/Schachnotation}}\par{}
 
 Nun soll in jedem Zug der jeweilige Spieler einen Zug angeben, wobei das Programm prüfen soll, ob der Zug gültig ist und ihn nur auch dann ausführen, wenn der Zug valide ist. Zum Beispiel nicht gültig soll sein: \begin{itemize}[nolistsep]
     \item Einen Bauer der ohne zu Schlagen diagonal zu ziehen.
