@@ -108,7 +108,7 @@ Gerne kannst du die Methode mit einer Eingabe im Terminal verknüpfen!
 \subsection{Primzahlen mit Eratosthenes}
 
 Programmiere einen Primzahlfinder, der das \emph{Sieb des Eratosthenes} verwendet. Es soll möglich sein in der Konsole die maximale Zahl $N$ einzugeben, woraufhin der Primzahlfinder alle Primzahlen von $2$ bis $N$ angibt. Ungültige oder Unsinnige Eingaben wie \say{$-42$}, \say{Hallo}, etc. müssen nicht abgefangen werden.\par{}
-\textit{Hinweis, der Algorithmus geht wie folgt. Zu Beginn gelten alle Zahlen von $2$ bis $N$ als potentielle Primzahlen. Nun wird die kleinste unmarkierte Zahl als Primzahl gespeichert und alle Vielfache dieser Zahl als \say{keine-Primzahl} markiert. Dieser Prozess kann bis zu $N$ durchgeführt werden, in diesem Durchlauf werden dann alle Primzahlen von $2$ bis $N$ gefunden. Man kann allerdings auch schon früher aufhören - hierüber gilt es sich zumindest Gedanken zu machen \Smiley.}
+\textit{Hinweis, der Algorithmus geht wie folgt. Zu Beginn gelten alle Zahlen von $2$ bis $N$ als potentielle Primzahlen. Nun wird die kleinste unmarkierte Zahl als Primzahl gespeichert und alle Vielfache dieser Zahl als \say{keine-Primzahl} markiert. Dieser Prozess kann bis zu $N$ durchgeführt werden, in diesem Durchlauf werden dann alle Primzahlen von $2$ bis $N$ gefunden. Man kann allerdings auch schon früher aufhören~-- hierüber gilt es sich zumindest Gedanken zu machen \Smiley.}
 
 \begin{solution}
     Der Code für die Lösung befindet sich hier: \aTask{easy}{A22_Primzahlfinder.java}, wobei sich alles wichtige in der \T{main}-Methode abspielt. Sei uns also das Array \bjava{prime[N]} gegeben, welches durchweg auf \bjava{true} gesetzt ist. Es genügt beim durchgehen alle Zahlen bis \(\sqrt{N}\)
@@ -353,7 +353,7 @@ public String toString() {
 
 \subsection{Turing-Maschine}
 \label{sec:turing}
-\textit{Vorab: Eine Programmiersprache erfüllt die Eigenschaft: \say{Turing-Vollständig}, wenn sie sich von einer Turing-Maschine emulieren lässt. Java und die meisten großen Programmiersprachen sind Turing-Vollständig. Das bedeutet wir können sie auch durch eine ganz kleine einfache Maschine ausdrücken: Die von Alan Turing 1936 eingeführte \imptext{Turingmaschine}.\footnote{\url{https://de.wikipedia.org/wiki/Turingmaschine}} Wir wollen uns hier nicht ausführlich mit dieser genialen Entwicklung aufhalten. Es sei nur als Hintergrundinformation gegeben, da wir hier eine solche in Java implementieren werden. Die Turingmaschine besitzt zwar in der Theorie unbegrenzt Speicherplatz, wir werden diesen hier allerdings - aus offensichtlichen Gründen - künstlich begrenzen.}\par{}
+\textit{Vorab: Eine Programmiersprache erfüllt die Eigenschaft: \say{Turing-Vollständig}, wenn sie sich von einer Turing-Maschine emulieren lässt. Java und die meisten großen Programmiersprachen sind Turing-Vollständig. Das bedeutet wir können sie auch durch eine ganz kleine einfache Maschine ausdrücken: Die von Alan Turing 1936 eingeführte \imptext{Turingmaschine}.\footnote{\url{https://de.wikipedia.org/wiki/Turingmaschine}} Wir wollen uns hier nicht ausführlich mit dieser genialen Entwicklung aufhalten. Es sei nur als Hintergrundinformation gegeben, da wir hier eine solche in Java implementieren werden. Die Turingmaschine besitzt zwar in der Theorie unbegrenzt Speicherplatz, wir werden diesen hier allerdings~-- aus offensichtlichen Gründen~-- künstlich begrenzen.}\par{}
 
 Im Folgenden besitzen wir ein Arbeitsband (\emph{working-tape}, hier durch ein Array repräsentiert) mit einer Länge von $42$ Feldern (oder jeder beliebigen anderen Anzahl, länger als $10$ sollte es aber schon sein \Tongey) auf dem sich ein Lese-/Schreib-Kopf (der sogenannte \emph{head}) bewegen kann. Dieser startet auf dem ersten Feld und kann nur nach links oder rechts bewegt werden (und zwar jeweils immer ein Feld weit), wobei wir zur
 \say{Emulation} eines unbegrenzten Speichers einfach festlegen, dass das Arbeitsband einen \say{Kreis} bildet (viel Spaß das in den Gedanken zu modellieren \Laughey), wenn wir also auf dem ersten Feld nach links gehen, landen wir auf dem letzten Feld, und anders herum, wenn wir auf dem letzten Feld nach rechts möchten, landen wir wieder auf dem ersten Feld (\textit{Hinweis: In Array-Notation entspricht das \say{erste Feld} \bjava{tape[0]} und das \say{letzte Feld} \bjava{tape[41]}}).
@@ -378,7 +378,7 @@ Wir möchten nun der Methode \bjava{turing} eine Zeichenkette an diesen Zeichen 
 \textit{Hinweis: Für einen Überblick über die Zuordnungen der ASCII-Tabelle, siehe hier: \url{https://www.torsten-horn.de/techdocs/ascii.htm}}.
 
 \begin{solution}
-    Der Code für die Lösung befindet sich hier: \aTask{middle}{A31_Turing.java}. Es ist nur eine einzige Methode vonnöten, da sich die Maschine - abseits des komplizierten hineindenkens - echt einfach implementieren lässt. Die Bandlänge sei hierbei in einer Konstante vermerkt, damit wir sie im Zweifelsfall leicht modifizieren können:
+    Der Code für die Lösung befindet sich hier: \aTask{middle}{A31_Turing.java}. Es ist nur eine einzige Methode vonnöten, da sich die Maschine~-- abseits des komplizierten hineindenkens~-- echt einfach implementieren lässt. Die Bandlänge sei hierbei in einer Konstante vermerkt, damit wir sie im Zweifelsfall leicht modifizieren können:
 \begin{java*}[morekeywords={[4]{WORKING_TAPE_SIZE}}]
 public static final int WORKING_TAPE_SIZE = 42;
 \end{java*}
@@ -733,7 +733,7 @@ Der Computergegner muss nicht gewinnen, aber darf nicht verlieren!\smallskip\\
 \textit{Tritt dies auf endet das Spiel und der Spieler/Computer der dies geschafft hat gewinnt das Spiel. Sonst endet die Partie mit einem Unentschieden. Auf ein Feld auf dem sich bereits ein Symbol befindet, darf kein weiteres gesetzt werden.}
 
 \begin{solution}
-    Die Lösung für diese Aufgabe gliedert sich in eine ganze Menge Klassen. Dies wäre natürlich nicht möglich gewesen - so lässt sich die Aufgabe mit nur zwei Klassen ebenfalls gut lösen. Um die Konzepte aber schön getrennt vermitteln zu können gesellen sich die Folgenden Klassen zur Problemlösung:
+    Die Lösung für diese Aufgabe gliedert sich in eine ganze Menge Klassen. Dies wäre natürlich nicht möglich gewesen~-- so lässt sich die Aufgabe mit nur zwei Klassen ebenfalls gut lösen. Um die Konzepte aber schön getrennt vermitteln zu können gesellen sich die Folgenden Klassen zur Problemlösung:
     \begin{itemize}[nolistsep]
         \item \aTask{middle}{A36_Ai.java} verwaltet den Computer. Da wir ihn hier auf dem Spielbaum aufbauen findet sich die Logik allerdings im Konten selbst:
         \item \aTask{middle}{A36_Node.java} verwaltet den Spielbaum. Was das ist werden wir uns später noch einmal ansehen. Ein Knoten hält jeweils eine Instanz des Spielfeldes:
@@ -743,7 +743,7 @@ Der Computergegner muss nicht gewinnen, aber darf nicht verlieren!\smallskip\\
         \item \aTask{middle}{A36_TicTacToe.java} beinhaltet den Spielablauf. Erlaubt es also dem Nutzer die Eingaben zu verarbeiten.
     \end{itemize}
     \paragraph{Das Spielfeld:}
-    Beginnen wir mit der einfachen Implementation. An sich ist das Spielfeld ein eindimensionales, neun-elementiges Array aus Zuständen (\,\solGet{keywordC}{A36\_State}), wobei Zustände nichts anderes sind als Elemente eines Enums die angeben ob das Feld gerade leer (\bjava{EMPTY}) von einem Kreuz (\bjava{CROSS}) oder einem Kreis (\bjava{CIRCLE}) belegt ist. Die Ausgabe ist nun einfach eine iteration über diese Elemente mit grafischer Aufbereitung, wir werden uns im Folgenden nicht weiter mit ihr beschäftigen. Wir wollen uns viel eher ansehen, wie überprüft wird ob es einen Sieger gibt. Hierzu machen wir nämlich keine aufwändige Routine sondern speichern einfach alle Möglichkeiten/Kombinationen in denen eine Siegbedingung vorligen kann (es empfiehlt sich natürlich sich über andere Vorgehensweisen zumindest Gedanken zu machen - es gibt viele mal mehr und mal weniger schöne Vorgehensweisen):
+    Beginnen wir mit der einfachen Implementation. An sich ist das Spielfeld ein eindimensionales, neun-elementiges Array aus Zuständen (\,\solGet{keywordC}{A36\_State}), wobei Zustände nichts anderes sind als Elemente eines Enums die angeben ob das Feld gerade leer (\bjava{EMPTY}) von einem Kreuz (\bjava{CROSS}) oder einem Kreis (\bjava{CIRCLE}) belegt ist. Die Ausgabe ist nun einfach eine iteration über diese Elemente mit grafischer Aufbereitung, wir werden uns im Folgenden nicht weiter mit ihr beschäftigen. Wir wollen uns viel eher ansehen, wie überprüft wird ob es einen Sieger gibt. Hierzu machen wir nämlich keine aufwändige Routine sondern speichern einfach alle Möglichkeiten/Kombinationen in denen eine Siegbedingung vorligen kann (es empfiehlt sich natürlich sich über andere Vorgehensweisen zumindest Gedanken zu machen~-- es gibt viele mal mehr und mal weniger schöne Vorgehensweisen):
 \begin{java*}
 int[][] winStates = {{0,1,2},{3,4,5},{6,7,8}, // Waagerecht
                      {0,3,6},{1,4,7},{2,5,8}, // Senkrecht
@@ -967,7 +967,7 @@ Peter Erika   Wolfgang Rosalinde
     \end{scope}
 \end{tikzpicture}
 \end{minipage}\medskip\newline
-\textit{Bonus: Lasse doch eine Ente auch ihre Kinder speichern - hierbei soll im Konstruktor jeweils die Liste/das Array der Kinder von Vater und Mutter erweitert werden. Schreibe dann eine Methode \bjava{getSiblings()} die die Geschwister einer Ente auflistet.}
+\textit{Bonus: Lasse doch eine Ente auch ihre Kinder speichern~-- hierbei soll im Konstruktor jeweils die Liste/das Array der Kinder von Vater und Mutter erweitert werden. Schreibe dann eine Methode \bjava{getSiblings()} die die Geschwister einer Ente auflistet.}
 
 \begin{solution}
     Der Code für diese Aufgaben befindet sich in drei verschiedenen Dateien: \aTask{middle}{A38_Stammbaum.java} welche den eigentlichen Stammbaum enthält, \aTask{middle}{A38_EntenListe.java} welche eine Liste an Enten konstruiert und \aTask{middle}{A38_Ente.java} die den Code für eine Ente enthält. Wir werden hier zuerst die notwendigen Hilfsmethoden abarbeiten, bevor ich zur eigentlichen \say{Attraktion} (\bjava[add to literate={A38_Ente}{{\solGet{keywordC}{A38\_Ente}}}8]{printStammbaum(A38_Ente)}) gelange.
@@ -985,7 +985,7 @@ Peter Erika   Wolfgang Rosalinde
             \item \bjava{contains(A38_Ente)}: Prüft, ob die Ente in der Liste enthalten ist.
         \end{itemize}
         \end{multicols}
-        Für die Funktionalität der letzten Methode fügen wir noch eine \bjava{equals()}-Methode in \bjava{A38_Ente} an. Auf sie wollen wir hier auch nicht weiter eingehen. \notetext{Übrigens: Eine solche Listenimplementation muss natürlich nicht für jeden Datentyp geschrieben werden. Java bietet hierfür das Prinzip der \say{Generics} an, bei dem man einen Platzhalterdatentyp definiert, der dann in der Liste verwaltet wird. Über \say{Interfaces} kann dann geregelt werden, welche Schnittstellen dieser Datentyp bieten muss - so funktioniert übrigens auch das Iterieren mittels Javas \say{foreach}. Hierfür wird das \solGet{keywordC}{iterable}-Keyword benötigt!}
+        Für die Funktionalität der letzten Methode fügen wir noch eine \bjava{equals()}-Methode in \bjava{A38_Ente} an. Auf sie wollen wir hier auch nicht weiter eingehen. \notetext{Übrigens: Eine solche Listenimplementation muss natürlich nicht für jeden Datentyp geschrieben werden. Java bietet hierfür das Prinzip der \say{Generics} an, bei dem man einen Platzhalterdatentyp definiert, der dann in der Liste verwaltet wird. Über \say{Interfaces} kann dann geregelt werden, welche Schnittstellen dieser Datentyp bieten muss~-- so funktioniert übrigens auch das Iterieren mittels Javas \say{foreach}. Hierfür wird das \solGet{keywordC}{iterable}-Keyword benötigt!}
 
         \paragraph{Den Stammbaum ausgeben:}
         Nun möchten wir den Stammbaum ausgeben. Hier treffen wir die Annahme, dass eine Ente entweder beide Elternteile besitzt, oder keinen. Weiter geht diese Lösung davon aus, dass die Zweige des jeweiligen Elternteils ebenfalls ausbalanciert sind. Dies lässt sich sehr leicht ändern (in dem man zum Beispiel für jede Ente speichert, in welcher Generation sie lebt), soll aber hier nicht unser Problem sein. Wir wollen uns nur ansehen wie wir den Stammbaum \say{traveriseren} also durchlaufen können. So dass wir zu Ende jedes Element besucht haben. Umgesetzt wurde dies hier durch einen nicht-rekursiven Ansatz, der grob folgendem Ansatz folgt:
