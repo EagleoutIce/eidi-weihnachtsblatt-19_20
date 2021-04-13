@@ -202,7 +202,7 @@ Schreibe für jede der folgenden Anforderungen eine Funktion, die eine Zahl als 
         \item Dezimal in Oktal (und umgekehrt)
         \item Dezimal in römische Zahlenschrift.
     \end{enumerate}
-\end{multicols}\vspace*{-0.75\baselineskip}\par
+\end{multicols}\vspace*{-.75\baselineskip}\par
 Die Option für \say{von römischer Zahlen ins Dezimalsystem} ist freiwillig. \textit{Hinweis: Die Darstellung einer Zahl im Binär-, Oktal- oder Hexadezimal-System erfolgt analog zum Dezimalsystem, wobei für jede Ziffer entweder zwei, acht oder sechzehn Symbole zur Verfügung stehen. Die Wertigkeit ist hierbei für jede Ziffer: \T{Ziffer * Basis\^{}Stelle}.
 So ist zum Beispiel $42_{10}$: \begin{itemize}[nolistsep]
     \item im Binärsystem $101010_{2}$, da: $\impmath{1} \cdot 2^5 + \impmath{0} \cdot 2^4 + \impmath{1} \cdot 2^3 + \impmath{0} \cdot 2^2 + \impmath{1} \cdot 2^1 + \impmath{0} \cdot 2^0 = 42_{10}$.
@@ -235,15 +235,15 @@ public static int fromAtoDec(String A, int baseA){
     römische gewünscht ist. In diesem Fall habe ich eine Konstante definiert und verwende dann
     folgenden Code für die Konvertierung:
 \begin{java}[firstnumber=59]
-public static String[] roman_chars = { "M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I" };
-public static int[] roman_values = { 1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1 };
+public static final String[] ROMAN_CHARS = { "M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I" };
+public static final int[] ROMAN_VALUES = { 1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1 };
 public static String fromDecToRom(int A){
     // Wir probieren vom höher zum niederwrt. röm. Zeichen alle
     String result = "";
-    for (int i = 0; i < roman_chars.length; i++) {
-        while(A >= roman_values[i]) { // Zeichen passt :D
-            result += roman_chars[i];
-            A -= roman_values[i]; // Abziehen der Zahl
+    for (int i = 0; i < ROMAN_CHARS.length; i++) {
+        while(A >= ROMAN_VALUES[i]) { // Zeichen passt :D
+            result += ROMAN_CHARS[i];
+            A -= ROMAN_VALUES[i]; // Abziehen der Zahl
         }
     }
     return result;

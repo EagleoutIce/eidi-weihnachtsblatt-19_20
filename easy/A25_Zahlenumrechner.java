@@ -20,18 +20,18 @@ public class A25_Zahlenumrechner {
     // Umrechnungstabelle für Römische Zahlen, könnte man als HashMap verwalten
     // Wir speichern alle Kombinationen um uns über das Subtrahieren keine Gedanken zu machen :D
     /// Hält die römischen Ziffersymbolkombinationen
-    public static String[] roman_chars = { "M", "CM", "D", "CD", "C", "XC", "L", 
+    public static final String[] ROMAN_CHARS = { "M", "CM", "D", "CD", "C", "XC", "L",
                                            "XL", "X", "IX", "V", "IV", "I" };
     /// Hält die zu {@link #roman_chars} gehörigen dezimalen Werte
-    public static int[] roman_values = { 1000, 900, 500, 400, 100, 90, 50, 
+    public static final int[] ROMAN_VALUES = { 1000, 900, 500, 400, 100, 90, 50,
                                            40, 10, 9, 5, 4, 1 };
-    
+
     /**
      * Konvertiert A aus der Basis baseA ins Dezimalsystem
-     * 
+     *
      * @param A Eine Ziffernfolge in Basis baseA
      * @param baseA Die Basis (siehe zum Beispiel {@link #HEX})
-     * 
+     *
      * @return die Ziffernfolge als Dezimalzahl
      */
     public static int fromAtoDec(String A, int baseA){
@@ -46,7 +46,7 @@ public class A25_Zahlenumrechner {
                 digit = arr[i] - '0'; // '0' = 0, '1' = 1, ...
             else if(arr[i] >= 'A' && arr[i] <= 'F')
                 digit = arr[i] - 'A' + 10; // 'A' = 10, 'B' = 11, ....
-            decimal += digit * Math.pow(baseA,arr.length-i-1);// Stelle * 
+            decimal += digit * Math.pow(baseA,arr.length-i-1);// Stelle *
         }
         return decimal;
     }
@@ -54,7 +54,7 @@ public class A25_Zahlenumrechner {
     /**
      * Besonere Variante von {@link #fromDecToB(int)} die
      * gezielt ins römische Zahlsystem umrechnet.
-     * 
+     *
      * @param A die zu konvertierende Eingabe
      * @return die Eingabe in römischer Notation
      */
@@ -72,16 +72,16 @@ public class A25_Zahlenumrechner {
 
     /**
      * Konvertiert die Dezimalzahl A in die Basis baseB
-     * 
+     *
      * @param A Eine Ziffernfolge im Dezimalsystem
      * @param baseB Die Zielbasis (siehe zum Beispiel {@link #HEX})
-     * 
+     *
      * @return Die Dezimalzahl 'A' in Zielbasis baseB
      */
     public static String fromDecToB(int A, int baseB){
         if(baseB == ROM) return fromDecToRom(A);
         // Teile A sukzessiv durch base B und konkatiniere Reste
-        String result = ""; 
+        String result = "";
         int remainder = 0;
         while(A > 0) {// Es gibt noch was zu teilen
             remainder = A % baseB;
@@ -97,7 +97,7 @@ public class A25_Zahlenumrechner {
 
     /**
      * Nicht benötigte Hilfsmethode für {@link #main(String[])}
-     * 
+     *
      * @param input die Eingabe
      * @param baseA die Basis der Eingabe
      */
@@ -113,9 +113,9 @@ public class A25_Zahlenumrechner {
     /**
      * Nicht notwendige Methode, die für jede Eingabe
      * automatisch alle Basen berechnet.
-     * 
+     *
      * @param args die jeweiligen Zahlen
-     * 
+     *
      * @see #printAll(String, int)
      */
     public static void main(String[] args) {
