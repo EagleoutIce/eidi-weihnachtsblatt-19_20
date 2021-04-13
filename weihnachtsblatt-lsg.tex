@@ -235,8 +235,10 @@ public static int fromAtoDec(String A, int baseA){
     römische gewünscht ist. In diesem Fall habe ich eine Konstante definiert und verwende dann
     folgenden Code für die Konvertierung:
 \begin{java}[firstnumber=59]
-public static final String[] ROMAN_CHARS = { "M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I" };
-public static final int[] ROMAN_VALUES = { 1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1 };
+public static final String[] ROMAN_CHARS =
+        { "M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I" };
+public static final int[] ROMAN_VALUES =
+        { 1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1 };
 public static String fromDecToRom(int A){
     // Wir probieren vom höher zum niederwrt. röm. Zeichen alle
     String result = "";
