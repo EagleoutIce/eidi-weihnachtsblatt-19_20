@@ -1,9 +1,25 @@
 \documentclass[table]{sopra-base}
 
 \usepackage{enumitem,mathtools,multicol,tikzducks,tikzsymbols,fontawesome,footnotebackref}
-
 \usepackage[upshape]{sopra-listings}
 \usepackage[nousefa]{sopra-attachments}
+
+\def\impmath#1{\textcolor{sob@col@uulm@cs}{\ensuremath{\mathit{#1}}}}
+\long\def\say#1{\glqq#1\grqq{}}
+\let\T\texttt
+
+\makeatletter
+\newcommand*\rom[1]{\expandafter\@slowromancap\romannumeral #1@}
+\makeatother
+
+\renewcommand\arraystretch{1.25}
+\def\pc{\noexpand\rotatebox[origin=c]{270}{\noexpand\faPaperclip{}}}
+\def\aJava#1{\attachDocumentText{#1}{\pc\ #1}}
+\def\aTask#1#2{\attachDocumentText{#1/#2}{\pc\ \noexpand\detokenize{#2}}}
+
+\newenvironment{solution}{\null\par\noindent\textbf{\textcolor{sob@col@uulm@cs}{Lösung:}}\newline\begingroup\color{black}\slshape\ignorespaces}{\endgroup}
+
+
 
 \title{Einführung in die Informatik}
 \subtitle[Inoffizielles Weihnachtsblatt - Lösung]{Inoffizielles Weihnachtsblatt - Lösung | WiSe 2019/20}
@@ -17,21 +33,6 @@
 \keywords{EidI WiSe-2019/2020 Weihnachtsblatt LaTeX Lösung}
 
 \duedate{2020-01-06}
-
-\def\impmath#1{\textcolor{sob@col@uulm@cs}{\ensuremath{\mathit{#1}}}}
-\long\def\say#1{\glqq{#1}\grqq{}}
-\let\T\texttt
-
-\makeatletter
-\newcommand*\rom[1]{\expandafter\@slowromancap\romannumeral #1@}
-\makeatother
-
-\renewcommand\arraystretch{1.25}
-\def\pc{\noexpand\rotatebox[origin=c]{270}{\noexpand\faPaperclip{}}}
-\def\aJava#1{\attachDocumentText{#1}{\pc\ #1}}
-\def\aTask#1#2{\attachDocumentText{#1/#2}{\pc\ \noexpand\detokenize{#2}}}
-
-\newenvironment{solution}{\null\par\noindent\textbf{\textcolor{sob@col@uulm@cs}{Lösung:}}\newline\bgroup\color{black}\slshape\ignorespaces}{\egroup}
 
 \begin{document}
 
@@ -129,7 +130,7 @@ Schreibe eine Funktion, die einen Integer erhält und die Quersumme von diesem b
 \textit{Hinweis: Die Quersumme bezeichnet die Summe der einzelnen Ziffernwerte, so ist die Quersumme von $2042$ gegeben durch: $2+0+4+2 = 8$. Als Übung können auch drei oder mehr verschiedene Verfahren für diese Aufgabe gefunden werden (so zum Beispiel ohne und mit Modulo, \ldots).}
 
 \begin{solution}
-    Der Code für die Lösung befindet sich hier: \aTask{easy}{A23_Quersumme.java}, wobei die einzige relevante Methode \bjava{quersummeVon(int)} ist. Hierbei summieren wir die jeweils kleinste Ziffer der Zahl auf (mittels Modulo \(10\)) und teilen die Zahl dann anschließend ganzzahlig durch \(10\) um die kleinst-wertige Ziffer zu verwerfen (die dadurch entstehende Nachkommastelle wird von Java abgeschnitten). Vorweg sei gleich als eine andere Alternative präsentiert: bei der man die Zahl als
+    Der Code für die Lösung befindet sich hier: \aTask{easy}{A23_Quersumme.java}. Die einzige relevante Methode für uns ist hier \bjava{quersummeVon(int)}. Dabei summieren wir die jeweils kleinste Ziffer der Zahl auf (mittels Modulo \(10\)) und teilen die Zahl dann anschließend ganzzahlig durch \(10\) um die kleinst-wertige Ziffer zu verwerfen (die dadurch entstehende Nachkommastelle wird von Java abgeschnitten). Vorweg sei gleich als eine andere Alternative präsentiert: bei der man die Zahl als
     String interpretiert, dann über die einzelnen Zeichen iteriert und ihre Ziffernwerte aufsummiert.\par{}
     Die hier referenzierte Lösung läuft wie folgt ab:
 \begin{java}[firstnumber=30]
@@ -287,17 +288,17 @@ Ente flo    = new Ente("Florian", 0, dieter, jasmin);
 Wir haben also die Ente \T{dieter} (ohne Eltern, dies wird jeweils durch \bjava{null} gekennzeichnet), die $5$ Jahre alt ist, die $7$ jährige Ente \T{jasmin} mit Namen \say{Jasmin} und die nulljährige Ente \T{flo} mit Namen \say{Florian}, deren Papa \T{dieter} und deren Mutter \T{jasmin} ist (\notetext{sämtliche implizierten Geschlechtszugehörigkeiten sind natürlich nur exemplarisch und sollen den Enten mitnichten die Möglichkeit nehmen sich anders zu identifizieren}).\par{}
 Nun gilt es entsprechende Methoden zu erstellen um mit den Enten arbeiten zu können. Es gilt:
 \begin{itemize}[nolistsep]
-    \item mittels \bjava{geburtstag()} soll das Alter einer Ente um ein Jahr erhört werden können. Schreibe auch \bjava{geburtstag(int)} mit dem eine Ente gleich mehrmals feiern darf (man also das Alter relativ um eine gewisse Anzahl an Jahren erhöht).
+    \item mittels \bjava{geburtstag()} soll das Alter einer Ente um ein Jahr erhört werden können. Zusätzlich soll sie durch \bjava{geburtstag(int)} auch gleich mehrmals feiern dürfen (man also das Alter relativ um eine gewisse Anzahl an Jahren erhöht).
     \item durch \bjava{getName()}, \bjava{getFather()} und \bjava{getMother()} sollen die jeweiligen Eigenschaften zurückgeliefert werden.
     \item durch \bjava{changeName(String)} soll der Name einer Ente geändert werden können.
 \end{itemize}
 Final gilt es noch eine \bjava{toString()}-Methode zu schreiben, die einen \bjava{String} zurückliefert, der die Ente repräsentiert.\\
 So soll \bjava{dieter.toString()} folgendes liefern:
-{\small\begin{plainvoid}
+{\small\begin{plainvoid}[belowskip=0pt]
 |plain|Ich heiße Dieter und bin 5 Jahre alt.|plain|
 \end{plainvoid}}
 für eine Ente mit Eltern wird folgendes Ergebnis gewünscht (\bjava{flo.toString()}):
-{\small\begin{plainvoid}
+{\small\begin{plainvoid}[belowskip=0pt]
 |plain|Ich heiße Florian, bin 0 Jahre alt, meine Mutter heißt Jasmin und mein Vater Dieter.|plain|
 \end{plainvoid}}
 \textit{Hinweis, Java ruft zum Beispiel bei einer Ausgabe mittels \bjava{System.out.println()} automatisch die \bjava{toString()} Methode eines Objekts auf, die auch implizit gegeben ist, da aber nicht so sinnvolle Informationen liefert (einfach mal ausprobieren \Laughey). Es genügt nun also \say{\bjava{System.out.println(flo)}} zu schreiben.}
@@ -493,7 +494,7 @@ Das Programm soll nun für jede der insgesamt fünf Fragestufen, jeweils verschi
 \textit{Normierung der Eingaben. In jeder Frage soll der Nutzer mit den Buchstaben $A$, $B$, $C$ oder $D$ eine der vier Antwortmöglichkeiten auswählen können. Den $50:50$ Joker soll er mit $F$ (wegen fifty) und den Enten-Joker mit $E$ einsetzen können (sofern diese noch zur Verfügung stehen). Das Spiel soll jeder Zeit durch $Q$ (für Quit, oder Quack \Tongey) verlassen werden können. Bei Sieg, Ausscheiden oder einem Verlassen des Spiels soll sich das Programm mit einer entsprechenden Ausgabe beenden.}
 
 \begin{solution}
-    Die Lösung besteht aus zwei verschiedenen Dateien. Einer Hilfsklasse, die uns ein Frage-Objekt modelliert (\aTask{middle}{A34_Question.java}) sowie der Hauptklasse, die den eigentlichen Spielverlauf steuert, sowie den Pool an Fragen definiert. Namentlich: \aTask{middle}{A34_Entionaer.java}. Wir betrachten zuerst die Gestalt einer Frage, wobei es nebst Gettern und Settern nur drei wichtige Attribute gibt:
+    Die Lösung besteht aus zwei verschiedenen Dateien. Eine davon ist eine Hilfsklasse, die ein Frage-Objekt modelliert und für die eigentlich Logik erstmal vernachlässigt werden kann (\aTask{middle}{A34_Question.java}). Die zweite Datei ist die Hauptklasse, die den eigentlichen Spielverlauf steuert, sowie den Pool an Fragen definiert. Namentlich: \aTask{middle}{A34_Entionaer.java}. Wir betrachten zuerst die Gestalt einer Frage, wobei es nebst Gettern und Settern nur drei wichtige Attribute gibt:
 \begin{java}[firstnumber=24]
 private String questionText;
 private String[] answers;
@@ -965,19 +966,19 @@ Peter Erika   Wolfgang Rosalinde
 \textit{Bonus: Lasse doch eine Ente auch ihre Kinder speichern - hierbei soll im Konstruktor jeweils die Liste/das Array der Kinder von Vater und Mutter erweitert werden. Schreibe dann eine Methode \bjava{getSiblings()} die die Geschwister einer Ente auflistet.}
 
 \begin{solution}
-    Der Code für diese Aufgaben befindet sich in drei verschiedenen Dateien: \aTask{middle}{A38_Stammbaum.java}, sowie \aTask{middle}{A38_EntenListe.java} und \aTask{middle}{A38_Ente.java}. Wir werden hier zuerst die notwendigen Hilfsmethoden abarbeiten, bevor ich zur eigentlichen \say{Attraktion} (\bjava[add to literate={A38_Ente}{{\solGet{keywordC}{A38\_Ente}}}8]{printStammbaum(A38_Ente)}) gelange.
+    Der Code für diese Aufgaben befindet sich in drei verschiedenen Dateien: \aTask{middle}{A38_Stammbaum.java} welche den eigentlichen Stammbaum enthält, \aTask{middle}{A38_EntenListe.java} welche eine Liste an Enten konstruiert und \aTask{middle}{A38_Ente.java} die den Code für eine Ente enthält. Wir werden hier zuerst die notwendigen Hilfsmethoden abarbeiten, bevor ich zur eigentlichen \say{Attraktion} (\bjava[add to literate={A38_Ente}{{\solGet{keywordC}{A38\_Ente}}}8]{printStammbaum(A38_Ente)}) gelange.
     \paragraph{Das Prinzip einer Liste:}
     In dieser Aufgabe basteln wir uns erst einmal eine Liste. An sich werden wir uns eine Klasse konstruieren, die ein Array für uns verwaltet, welches dynamisch mit unseren Bedürfnissen wachsen und Schrumpfen kann. Eine ähnliche (naja, das ist schon anmaßend, sagen wir, im Kerngedanken) Implementation ist bereits durch die Klasse \bjava{ArrayList} gegeben, die wir hier allerdings nicht verwenden. Ich werde hier nicht genau auf die Implementation eingehen, da die Funktionsweise der Methoden bereits Im Tutorium zu Übungsblatt \(7\) von mir im Rahmen der Präsenzaufgabe besprochen wurde (Siehe hier: \attachDocumentText{./files/folien8_ub_7_references_equals.pdf}{\pc{} \detokenize{folien8_ub_7_references_equals.pdf}}). Hier also nur die Sammlung der Methoden die wir im Folgenden verwenden können.
     \bgroup
         \lstset{add to literate={A38_Ente}{{\solGet{keywordC}{A38\_Ente}}}8}
         \begin{multicols}{2}
         \begin{itemize}
-            \item \bjava{size()} Liefert die Länge der Liste.
-            \item \bjava{get(int)} Liefert das \(i\)-te Element.
-            \item \bjava{append(A38_Ente)} Fügt eine Ente der Liste hinzu.
-            \item \bjava{removeFirst()} Entfernt die erste Ente und liefert sie zurück.
-            \item \bjava{removeLast()} Entfernt die letzte Ente und liefert sie zurück.
-            \item \bjava{contains(A38_Ente)} prüft ob die Ente in der Liste enthalten ist.
+            \item \bjava{size()}: Liefert die Länge der Liste.
+            \item \bjava{get(int)}: Liefert das \(i\)-te Element.
+            \item \bjava{append(A38_Ente)}: Fügt die übergebene Ente der Liste hinzu.
+            \item \bjava{removeFirst()}: Entfernt die erste Ente und liefert sie zurück.
+            \item \bjava{removeLast()}: Entfernt die letzte Ente und liefert sie zurück.
+            \item \bjava{contains(A38_Ente)}: Prüft, ob die Ente in der Liste enthalten ist.
         \end{itemize}
         \end{multicols}
         Für die Funktionalität der letzten Methode fügen wir noch eine \bjava{equals()}-Methode in \bjava{A38_Ente} an. Auf sie wollen wir hier auch nicht weiter eingehen. \notetext{Übrigens: Eine solche Listenimplementation muss natürlich nicht für jeden Datentyp geschrieben werden. Java bietet hierfür das Prinzip der \say{Generics} an, bei dem man einen Platzhalterdatentyp definiert, der dann in der Liste verwaltet wird. Über \say{Interfaces} kann dann geregelt werden, welche Schnittstellen dieser Datentyp bieten muss - so funktioniert übrigens auch das Iterieren mittels Javas \say{foreach}. Hierfür wird das \solGet{keywordC}{iterable}-Keyword benötigt!}
@@ -1058,7 +1059,7 @@ Die folgende Aufgabe ist in ihrer Natur komplexer und benötigt zumindest grundl
 werden, es geht um ein zwei Spieler-Schach welches es ermöglicht zwei Personen an einer
 Konsole gegeneinander Schach zu spielen. Zur optischen Aufbereitung können die im Folgenden nahegelegten ANSI-Escape-Codes Verwendung finden:}\par
 \paragraph{Mit ANSI-Escape-Codes:}
-Für den folgenden Teil kann es nützlich/hilfreich sein ANSI-Escape Sequenzen zu kennen. Diese müssen auf Windows-Distributionen unter Umständen noch aktiviert werden wobei dies mit Windows 10 nur noch ein Klick in eine Box getan sein sollte.\footnote{\url{https://stackoverflow.com/questions/16755142/how-to-make-win32-console-recognize-ansi-vt100-escape-sequences\#16799175}}\par{}
+Für den folgenden Teil kann es nützlich/hilfreich sein ANSI-Escape Sequenzen zu kennen. Diese müssen auf Windows-Distributionen unter Umständen noch aktiviert werden wobei dies mit Windows 10 nur noch ein Klick in eine Box getan sein sollte.\footnote{\href{https://stackoverflow.com/questions/16755142/how-to-make-win32-console-recognize-ansi-vt100-escape-sequences\#16799175}{\T{https://stackoverflow.com/questions/16755142/}}}\par
 Grundlegend handelt es sich bei einer ANSI-Escape Sequenz um eine durch \bjava{\\033[}
 angeführte Kontrollsequenz an der die anschließende Kodierung eine besondere Bedeutung im
 Terminal erhält. Eine volle Liste findet sich hier: \url{https://en.wikipedia.org/wiki/ANSI_escape_code}, vermutlich werden allerdings die Folgenden ausreichen:
@@ -1089,7 +1090,7 @@ Nun soll in jedem Zug der jeweilige Spieler einen Zug angeben, wobei das Program
     \item Den König nicht aus dem Schach zu befreien.
     \item Eine Rochade durchzuführen, wenn der König bereits gezogen hat.
 \end{itemize}
-Die validen Züge sollten sich hier: \url{https://www.wiki-schacharena.de/index.php/Schachregeln_f%C3%BCr_Einsteiger} nachvollziehen lassen, auch \say{en passant} soll möglich sein.\par{}
+Die validen Züge sollten sich hier: \href{https://www.wiki-schacharena.de/index.php/Schachregeln_f%C3%BCr_Einsteiger}{\T{wiki-schacharena}} nachvollziehen lassen, auch \say{en passant} soll möglich sein.\par
 \textit{Hinweis: Wie die Züge angegeben werden müssen bleibt dem Programmierer überlassen,
 sofern er sie eindeutig angibt. Ob der Zug nun also als 'A3-B4' notiert wird, oder als \say{\T{axb4}} ist nicht relevant.}
 
