@@ -8,8 +8,9 @@
 \long\def\say#1{\glqq#1\grqq{}}
 \let\T\texttt
 
-\makeatletter
 \lstset{belowskip=0pt}
+\setlist[enumerate]{topsep=0pt}
+\makeatletter
 \newcommand*\rom[1]{\expandafter\@slowromancap\romannumeral #1@}
 \makeatother
 
@@ -426,7 +427,7 @@ Schreibe für die Turing-Maschine aus \ref{sec:turing} ein Programm, welches ein
     Nun aber zum Erhalt eines Teiloptimalen Schrittes. Wir speichern ebenfalls eine interne Repräsentation des Bandes weswegen unter Umständen die Länge des Bandes der Ziel-Turingmaschine von Relevanz ist. Nun wenden wir für jedes gewünschte Zeichen die folgenden Schritte an:
     \begin{enumerate}
         \item Entspricht das Zeichen dem letzten Zeichen? \(\Rightarrow\) \say{\T{!}} (ein Zeichen für die Ausgabe ist das Minimum) und zum nächsten gewünschten Zeichen voranschreiten.
-        \item Berechne \say{Distanz} des gewünschten Zeichens zum Wert auf den aktuell der Zeiger zeigt. Sei diese Distanz hier \(d\).
+        \item Berechne \say{Distanz} des gewünschten Zeichens zum Wert auf den aktuell der Zeiger zeigt. Sei diese hier \(d\).
         \item Berechne für alle Felder mit einem Abstand von maximal \(d\) um die aktuelle Zeigerposition, die Distanz zum gewünschten Zeichen.
         \item Berechne nun das Feld bei dem die Summe aus Abstand zum gewünschten Zeichen und zur aktuellen Position am geringsten ist.
         \item Wenn nötig: Bewege Kopf auf dieses Feld (mittels \say{\T{>}} und \say{\T{<}})
